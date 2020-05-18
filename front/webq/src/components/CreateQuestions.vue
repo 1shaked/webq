@@ -379,7 +379,6 @@
 </template>
 <script>
 import { mapActions , mapState , mapGetters } from 'vuex'
-// import { log } from 'util';
 import Vue from 'vue';
 
 export default {
