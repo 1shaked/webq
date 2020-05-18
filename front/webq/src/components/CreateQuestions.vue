@@ -669,9 +669,6 @@ export default {
 .italic {
   font-style: italic; 
 }
-.dialog_text_field {
-  
-}
 .col {
   padding-top: 1px;
   padding-bottom: 2px;
