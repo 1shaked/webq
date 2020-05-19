@@ -457,7 +457,6 @@ export default {
                           ]
                         };  
       this.Questions.splice(index + 1 , 0 , question_exe);
-      //this.Questions.push(question_exe)
       console.log(this.Questions);
     },
     DeleteQuestion : function (index)
