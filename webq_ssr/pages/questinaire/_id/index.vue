@@ -1,6 +1,8 @@
 <template>
   <div>
     {{ questinaire.name }}
+    {{ $route.params }}
+    {{ $route.path }}
   </div>
 </template>
 <script>

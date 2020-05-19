@@ -1,17 +1,22 @@
 <template>
   <b-container class="bv-example-row">
-    <b-row>
-      <b-col cols="12" md="8">
-        create questinaire
-      </b-col>
-      <b-col cols="12" md="4">
+    <v-row>
+      <v-col cols="12" md="8">
+        <create-questinaire />
+      </v-col>
+      <v-col cols="12" md="4">
         control panel
-      </b-col>
-    </b-row>
+        {{ $route.params }}
+      </v-col>
+    </v-row>
   </b-container>
 </template>
 <script>
+import Create from '../../../components/questinaire/Create/index'
 export default {
-  layout: 'questinaire'
+  layout: 'questinaire',
+  components: {
+    'create-questinaire': Create
+  }
 }
 </script>

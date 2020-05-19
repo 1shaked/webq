@@ -1,14 +1,18 @@
 <template>
-  <b-container class="bv-example-row">
-    <b-row>
-      <b-col cols="12" md="8">
-        name of q
-      </b-col>
-      <b-col cols="12" md="4">
+  <v-container class="bv-example-row">
+    <v-row>
+      <v-col cols="12" md="8">
+        <v-container>
+          <v-car>
+            test
+          </v-car>
+        </v-container>
+      </v-col>
+      <v-col cols="12" md="4">
         persone created
-      </b-col>
-    </b-row>
-  </b-container>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 <script>
 export default {
