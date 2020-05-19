@@ -22,28 +22,38 @@ export const getters = {
 
 }
 
-// style all upper case
+// style all upper case for mutations , var are camelCase
 export const mutations = {
   [DELETE_QUESTION] (state, index) {
-
+    state.questinaire.questions.splice(index, 1)
   },
   [REPLACE_QUESTIONS] (state, { first, second }) {
-
+    const firstQuestion = state.questinaire.questions[first]
+    const secondQuestion = state.questinaire.questions[second]
+    Vue.set(state.questinaire.questions, first, secondQuestion)
+    Vue.set(state.questinaire.questions, second, firstQuestion)
   },
-  [ADD_OPTION_TO_QUESTION] (state, index) {
-
-  },
-  [DELETE_OPTION_FROM_QUESTION] (state, { questionIndex, optionIndex }) {
-
-  },
-  [PUSH_QUESTION_TO_INDEX] (state, { origin, newIndex }) {
-
-  },
-  [ADD_STYLE_TO_QUESTION] (state, { questionIndex, style }) {
-
+  [PUSH_QUESTION_TO_INDEX] (state, { fromIndex, toIndex }) {
+    const fromEl = state.questinaire.questions[fromIndex]
+    state.questinaire.questions.splice(toIndex, 1, fromEl)
+    state.questinaire.questions.splice(toIndex, 1)
   },
   [DUPLICATE_QUESTION] (state, { questionIndex }) {
-
+    const question = Object.assign({}, state.questinaire.questions[questionIndex])
+    state.questinaire.questions.splice(questionIndex + 1, 0, question)
+  },
+  [ADD_STYLE_TO_QUESTION] (state, { questionIndex, style }) {
+    // adding the style by the spread oprator
+    state.questinaire.questions[questionIndex].style = {
+      ...state.questinaire.questions[questionIndex].style,
+      ...style
+    }
+  },
+  [ADD_OPTION_TO_QUESTION] (state, index) {
+    state.questinaire.questions[index].options.push({ text: 'test', value: 'value' })
+  },
+  [DELETE_OPTION_FROM_QUESTION] (state, { questionIndex, optionIndex }) {
+    state.questinaire.questions[questionIndex].options.splice(optionIndex, 1)
   },
   [SET_QUESTINAIRE] (state, questinaire) {
     Vue.set(state, 'questinaire', questinaire)
