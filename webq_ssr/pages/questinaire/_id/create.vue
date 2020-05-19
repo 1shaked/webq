@@ -12,7 +12,7 @@
   </v-container>
 </template>
 <script>
-import Create from '../../../components/questinaire/create/index'
+import Create from '~/components/questinaire/create/index'
 export default {
   layout: 'questinaire',
   components: {
