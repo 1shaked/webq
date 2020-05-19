@@ -18,6 +18,10 @@ export const state = () => ({
   }
 })
 
+export const getters = {
+
+}
+
 // style all upper case
 export const mutations = {
   [DELETE_QUESTION] (state, index) {
