@@ -18,8 +18,11 @@ export const state = () => ({
   }
 })
 
+// camelCase
 export const getters = {
-
+  questinaireName: (state) => {
+    return state.questinaire.name
+  }
 }
 
 // style all upper case for mutations , var are camelCase

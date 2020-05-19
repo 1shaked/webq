@@ -1,7 +1,7 @@
 <template>
-  <b-container class="bv-example-row">
+  <v-container class="bv-example-row">
     <h1>form</h1>
-  </b-container>
+  </v-container>
 </template>
 <script>
 export default {
