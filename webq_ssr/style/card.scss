@@ -1,29 +1,21 @@
 @import url(https://fonts.googleapis.com/css?family=Varela+Round);
-
+@import 'variables.scss';
 // Colors
-$color-one: #1F2124;
-$color-two: #383A3F;
 $color-three: #F68657;
-$color-four: #F6B352;
 
 *, *:before, *:after {
   box-sizing: border-box;
 }
 
-body {
-  background: $color-two;
-  font-family: "Varela Round", sans-serif;
-}
-
 .card {
-  background: $color-one;
+  background: $card_background;
   box-shadow: 0 0 20px rgba(0,0,0,0.4);
   border-radius: 5px;
   margin: 50px 20px 20px 20px;
   width: calc(99.9% - 40px);
   padding: 20px;
-  text-align: center;
-  color: white;
+  text-align: right;
+  color: black;
   float: left;
   @media (max-width: 768px) {
     margin: 10px 20px;
@@ -50,7 +42,7 @@ body {
       width: 100px;
       height: 100px;
       path {
-        fill: $color-four;
+        fill: $success;
       }
     }
   }
@@ -63,14 +55,14 @@ body {
         margin: 10px 0;
         font-size: 14px;
         span {
-          border-bottom: 2px dotted $color-four;
+          border-bottom: 2px dotted $success;
         }
       }
     }
   }
   .btn {
     display: block;
-    background: $color-four;
+    background: $success;
     color: white;
     padding: 15px 20px;
     margin: 20px 0;
@@ -79,7 +71,10 @@ body {
     transition: all 200ms ease-in-out;
     text-decoration: none;
     &:hover {
-      background: $color-three;
+      background: white;
+      border: 2px solid $primary;
+      color: black;
+      font-size: 18px;
     }
   }
 }
