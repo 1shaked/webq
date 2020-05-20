@@ -1,29 +1,82 @@
 <template>
   <div>
-    {{ questinaire.questions[0] }}
+    <v-container>
+      <v-card
+        class="mx-auto my-12"
+        max-width="374"
+      >
+        <v-card-title>Cafe Badilico</v-card-title>
+
+        <v-card-text>
+          <v-row
+            align="center"
+            class="mx-0"
+          >
+            <v-rating
+              :value="4.5"
+              color="amber"
+              dense
+              half-increments
+              readonly
+              size="14"
+            />
+
+            <div class="grey--text ml-4">
+              4.5 (413)
+            </div>
+          </v-row>
+
+          <div class="my-4 subtitle-1">
+            $ • Italian, Cafe
+          </div>
+
+          <div>Small plates, salads & sandwiches - an intimate setting with 12 indoor seats plus patio seating.</div>
+        </v-card-text>
+
+        <v-divider class="mx-4" />
+
+        <v-card-title>Tonight's availability</v-card-title>
+
+        <v-card-text>
+          <v-chip-group
+            active-class="deep-purple accent-4 white--text"
+            column
+          >
+            <v-chip>5:30PM</v-chip>
+
+            <v-chip>7:30PM</v-chip>
+
+            <v-chip>8:00PM</v-chip>
+
+            <v-chip>9:00PM</v-chip>
+          </v-chip-group>
+        </v-card-text>
+
+        <v-card-actions>
+          <v-btn
+            color="deep-purple lighten-2"
+            text
+          >
+            Reserve
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-container>
     <div class="card">
       <div class="title">
         Standard
       </div>
 
-      <div class="icon">
-        <svg
-          id="Layer_1"
-          enable-background="new 0 0 512 512"
-          height="512px"
-          version="1.1"
-          viewBox="0 0 512 512"
-          width="512px"
-          xml:space="preserve"
-          xmlns="http://www.w3.org/2000/svg"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
-        ><path d="M468.493,101.637L371.955,5.098H159.57v77.231H43.724v424.769h308.923v-77.231h115.846V101.637z   M371.955,32.401l69.236,69.235h-69.236V32.401z M63.031,487.79V101.637h173.769v96.538h96.538V487.79H63.031z M256.108,109.632  l69.236,69.235h-69.236V109.632z M352.647,410.56V178.867l-96.538-96.538h-77.231V24.406h173.769v96.538h96.538V410.56H352.647z" fill="#37404D" /></svg>
-      </div><!--/icon-->
-
       <div class="features">
         <ul>
-          <li><span>5</span> Edits</li>
-          <li><span>1GB</span> Storage</li>
+          <li>
+            <span>
+              {{ questinaire.questions[0].name }}
+            </span>
+          </li>
+          <li>
+            {{ questinaire.questions[0].content }}
+          </li>
           <li><span>3</span> Pages</li>
           <li><span>1</span> Hour free support</li>
         </ul>

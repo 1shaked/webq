@@ -20,7 +20,7 @@ export default {
 </script>
 <style lang="scss">
 @import '~/style/variables.scss';
-  .form_index {
-    border: 1px solid $accent;
-  }
+.form_index {
+  border: 1px solid $accent;
+}
 </style>
