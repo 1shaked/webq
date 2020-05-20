@@ -9,6 +9,7 @@ import {
   PUSH_QUESTION_TO_INDEX,
   DUPLICATE_QUESTION
 } from '~/mutations/Questinaire'
+import contentTypes from '~/storeAssetes/contentTypes'
 
 // style camelCase
 export const state = () => ({
@@ -22,6 +23,9 @@ export const state = () => ({
 export const getters = {
   questinaireName: (state) => {
     return state.questinaire.name
+  },
+  contentTypes: (state) => {
+    return contentTypes
   }
 }
 
