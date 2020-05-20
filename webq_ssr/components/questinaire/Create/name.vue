@@ -1,6 +1,6 @@
 <template>
   <div>
-    {{ questinaireName }}
+    questinaireName -- {{ questinaireName }}
   </div>
 </template>
 <script>
