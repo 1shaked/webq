@@ -26,6 +26,9 @@ export const getters = {
   },
   contentTypes: (state) => {
     return contentTypes
+  },
+  questinaireContent: (state) => {
+    return state.questinaire.questions
   }
 }
 
