@@ -1,11 +1,23 @@
 <template>
   <div>
-    <component :is="componentId" />
+    <component :is="componentName" />
   </div>
 </template>
 <script>
 import { mapGetters } from 'vuex'
+const selectQuestion = () => import('./content/selectQuestion')
+const textQuestion = () => import('./content/textQuestion')
+const radioQuestion = () => import('./content/radioQuestion')
+const paragraphContent = () => import('./content/paragraphContent')
+const headerContent = () => import('./content/headerContent')
 export default {
+  components: {
+    selectQuestion,
+    textQuestion,
+    radioQuestion,
+    paragraphContent,
+    headerContent
+  },
   props: {
     index: {
       type: Number,
@@ -17,11 +29,11 @@ export default {
     ...mapGetters('Questinaire', [
       'questinaireContent'
     ]),
-    componentId () {
-      const fileName = this.questinaireContent[this.index].type
+    componentName () {
+      const componentName = this.questinaireContent[this.index].type
       // eslint-disable-next-line
-      const componentToRender = () => import(`./content/${fileName}`)
-      return componentToRender
+      // const componentToRender = () => import(`./content/${fileName}`)
+      return componentName
     }
   }
   // render (h) {
