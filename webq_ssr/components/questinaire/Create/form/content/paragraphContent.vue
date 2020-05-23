@@ -1,6 +1,6 @@
 <template>
   <div>
-    peregraph
+    <h1>peregraph</h1>
   </div>
 </template>
 
