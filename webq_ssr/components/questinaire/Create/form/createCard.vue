@@ -15,7 +15,7 @@
       <v-card-text>
         <v-container>
           <v-row>
-            <v-col cols="12">
+            <v-col v-show="contentType.type == 'question'" cols="12">
               <v-text-field
                 label="שם השאלה"
                 placeholder="שאלה לדוגמא"
@@ -32,7 +32,7 @@
         <div class="my-4 subtitle-1">
           $ • Italian, Cafe
         </div>
-
+        <content-maneger :index="0" />
         <div>
           Small plates, salads & sandwiches - an intimate setting with 12 indoor seats plus patio seating.
         </div>
@@ -98,7 +98,11 @@
 
 <script>
 import { mapGetters } from 'vuex'
+const contentManeger = () => import('./contentManeger')
 export default {
+  components: {
+    'content-maneger': contentManeger
+  },
   data: () => {
     return {
       contentType: ''
