@@ -9,6 +9,7 @@
           v-model="contentType"
           :items="contentTypes"
           label="סוג קומפוננטה"
+          @change="CHANGE_CONTENT_PARAMETER({ index: content, contentParameters: { type: contentType.name } })"
         />
       </v-card-title>
       {{ contentType }}
@@ -32,7 +33,8 @@
         <div class="my-4 subtitle-1">
           $ • Italian, Cafe
         </div>
-        <content-maneger :index="0" />
+        {{ content }}
+        <content-maneger :index="content" />
         <div>
           Small plates, salads & sandwiches - an intimate setting with 12 indoor seats plus patio seating.
         </div>
@@ -97,11 +99,18 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapMutations } from 'vuex'
 const contentManeger = () => import('./contentManeger')
 export default {
   components: {
     'content-maneger': contentManeger
+  },
+  props: {
+    content: {
+      type: Number,
+      default: 0,
+      reqired: true
+    }
   },
   data: () => {
     return {
@@ -112,6 +121,14 @@ export default {
     ...mapGetters('Questinaire', [
       'contentTypes'
     ])
+  },
+  methods: {
+    ...mapMutations('Questinaire', [
+      'CHANGE_CONTENT_PARAMETER'
+    ]),
+    ChangeQuestionType () {
+
+    }
   }
 }
 </script>
