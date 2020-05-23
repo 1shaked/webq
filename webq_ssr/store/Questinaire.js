@@ -2,12 +2,13 @@ import Vue from 'vue'
 import {
   SET_QUESTINAIRE,
   DELETE_QUESTION,
-  REPLACE_QUESTIONS,
+  REPLACE_CONTENT,
   ADD_OPTION_TO_QUESTION,
   ADD_STYLE_TO_QUESTION,
   DELETE_OPTION_FROM_QUESTION,
   PUSH_QUESTION_TO_INDEX,
-  DUPLICATE_QUESTION
+  DUPLICATE_QUESTION,
+  CHANGE_CONTENT_PARAMETER
 } from '~/mutations/Questinaire'
 import contentTypes from '~/storeAssetes/contentTypes'
 
@@ -15,7 +16,10 @@ import contentTypes from '~/storeAssetes/contentTypes'
 export const state = () => ({
   questinaire: {
     name: 'aaa',
-    questions: [{ type: 'text', content: 'kkkksksk', name: 'aaaa', dataType: 'int', required: true, textSize: 16, class: ' bold under_line', rowSize: 10, label: 't' }]
+    content: [
+      { type: 'textQuestion', content: 'kkkksksk', name: 'aaaa', dataType: 'int', required: true, textSize: 16, class: ' bold under_line', rowSize: 10, label: 't' },
+      { type: 'textQuestion', content: 'test me', name: 'my name', dataType: 'text', required: true, textSize: 16, class: ' bold under_line', rowSize: 10, label: 'test label' }
+    ]
   }
 })
 
@@ -28,42 +32,47 @@ export const getters = {
     return contentTypes
   },
   questinaireContent: (state) => {
-    return state.questinaire.questions
+    return state.questinaire.content
   }
 }
 
 // style all upper case for mutations , var are camelCase
 export const mutations = {
   [DELETE_QUESTION] (state, index) {
-    state.questinaire.questions.splice(index, 1)
+    state.questinaire.content.splice(index, 1)
   },
-  [REPLACE_QUESTIONS] (state, { first, second }) {
-    const firstQuestion = state.questinaire.questions[first]
-    const secondQuestion = state.questinaire.questions[second]
-    Vue.set(state.questinaire.questions, first, secondQuestion)
-    Vue.set(state.questinaire.questions, second, firstQuestion)
+  [REPLACE_CONTENT] (state, { first, second }) {
+    const firstQuestion = state.questinaire.content[first]
+    const secondQuestion = state.questinaire.content[second]
+    Vue.set(state.questinaire.content, first, secondQuestion)
+    Vue.set(state.questinaire.content, second, firstQuestion)
   },
   [PUSH_QUESTION_TO_INDEX] (state, { fromIndex, toIndex }) {
-    const fromEl = state.questinaire.questions[fromIndex]
-    state.questinaire.questions.splice(toIndex, 1, fromEl)
-    state.questinaire.questions.splice(toIndex, 1)
+    const fromEl = state.questinaire.content[fromIndex]
+    state.questinaire.content.splice(toIndex, 1, fromEl)
+    state.questinaire.content.splice(toIndex, 1)
   },
   [DUPLICATE_QUESTION] (state, { questionIndex }) {
-    const question = Object.assign({}, state.questinaire.questions[questionIndex])
-    state.questinaire.questions.splice(questionIndex + 1, 0, question)
+    const question = Object.assign({}, state.questinaire.content[questionIndex])
+    state.questinaire.content.splice(questionIndex + 1, 0, question)
+  },
+  [CHANGE_CONTENT_PARAMETER] (state, { index, contentParameters }) {
+    for (const [key, value] of Object.entries(contentParameters)) {
+      Vue.set(state.questinaire.content[index], key, value)
+    }
   },
   [ADD_STYLE_TO_QUESTION] (state, { questionIndex, style }) {
     // adding the style by the spread oprator
-    state.questinaire.questions[questionIndex].style = {
-      ...state.questinaire.questions[questionIndex].style,
+    state.questinaire.content[questionIndex].style = {
+      ...state.questinaire.content[questionIndex].style,
       ...style
     }
   },
   [ADD_OPTION_TO_QUESTION] (state, index) {
-    state.questinaire.questions[index].options.push({ text: 'test', value: 'value' })
+    state.questinaire.content[index].options.push({ text: 'test', value: 'value' })
   },
   [DELETE_OPTION_FROM_QUESTION] (state, { questionIndex, optionIndex }) {
-    state.questinaire.questions[questionIndex].options.splice(optionIndex, 1)
+    state.questinaire.content[questionIndex].options.splice(optionIndex, 1)
   },
   [SET_QUESTINAIRE] (state, questinaire) {
     Vue.set(state, 'questinaire', questinaire)
