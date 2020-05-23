@@ -25,4 +25,11 @@ export default [{
     type: 'content',
     name: 'headerContent'
   }
+},
+{
+  text: 'פסקה',
+  value: {
+    type: 'content',
+    name: 'paragraphContent'
+  }
 }]
