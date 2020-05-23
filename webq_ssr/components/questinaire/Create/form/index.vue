@@ -3,10 +3,11 @@
     <v-container>
       <v-row>
         <v-col cols="12" md="6">
-          <create-card />
+          <!-- TODO: loop throhu the content -->
+          <create-card :content="0" />
         </v-col>
         <v-col cols="12" md="6">
-          <create-card />
+          <create-card :content="1" />
         </v-col>
       </v-row>
     </v-container>
