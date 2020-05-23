@@ -9,7 +9,7 @@ export default [{
   text: 'בחירה מרובה',
   value: {
     type: 'question',
-    name: 'check box'
+    name: 'select'
   }
 },
 {
