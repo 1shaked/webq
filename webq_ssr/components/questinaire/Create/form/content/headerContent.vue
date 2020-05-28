@@ -3,8 +3,9 @@
     <v-row>
       <v-col>
         <v-text-field
-          label="הכותרת"
           v-model="header"
+          label="הכותרת"
+          @change="addHeaderText"
         />
       </v-col>
     </v-row>
@@ -12,6 +13,7 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
 export default {
   props: {
     index: {
@@ -23,6 +25,19 @@ export default {
   data () {
     return {
       header: ''
+    }
+  },
+  methods: {
+    ...mapMutations('Questinaire', [
+      'CHANGE_CONTENT_PARAMETER'
+    ]),
+    addHeaderText (params) {
+      this.CHANGE_CONTENT_PARAMETER({
+        index: this.index,
+        contentParameters: {
+          content: this.header
+        }
+      })
     }
   }
 
