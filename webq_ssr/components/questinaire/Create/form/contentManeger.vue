@@ -1,6 +1,6 @@
 <template>
   <div>
-    <component :is="componentName" />
+    <component :is="componentName" :index="index" />
   </div>
 </template>
 <script>
