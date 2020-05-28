@@ -13,31 +13,7 @@
         />
       </v-card-title>
       <v-card-text>
-        <v-container>
-          <v-row>
-            <v-col v-show="contentType.type == 'question'" cols="12">
-              <v-text-field
-                label="שם השאלה"
-                placeholder="שאלה לדוגמא"
-                outlined
-              />
-            </v-col>
-            <v-col cols="12" md="8" lg="6">
-              <v-text-field
-                label="תוכן השאלה"
-                placeholder="מה הגיל שלך?"
-                outlined
-              />
-            </v-col>
-            <v-col cols="12" md="8" lg="6">
-              <v-text-field
-                label="מידע לדוגמא על השדה: מה ת.ז שלך"
-                placeholder="000-000-000"
-                outlined
-              />
-            </v-col>
-          </v-row>
-        </v-container>
+        <question-base v-show="contentType.type == 'question'" :index="content" />
         <v-row
           align="center"
           class="mx-0"
@@ -58,54 +34,11 @@
       <v-card-title>Tonight's availability</v-card-title>
 
       <v-card-text>
-        <v-chip-group
-          active-class="deep-purple accent-4 white--text"
-          column
-        >
-          <v-chip>
-            <v-avatar>
-              <B>
-                B
-              </B>
-            </v-avatar>
-          </v-chip>
-
-          <v-chip>
-            <v-avatar left>
-              <U>U</U>
-              <!-- <v-icon>mdi-checkbox-marked-circle</v-icon> -->
-            </v-avatar>
-          </v-chip>
-
-          <v-chip>
-            <v-avatar left>
-              <I>I</I>
-              <!-- <v-icon>mdi-checkbox-marked-circle</v-icon> -->
-            </v-avatar>
-          </v-chip>
-        </v-chip-group>
+        <base-style />
       </v-card-text>
 
       <v-card-actions>
-        <v-row cols="12" md="3">
-          <v-col>
-            <v-btn fab>
-              <v-icon>mdi-delete-circle</v-icon>
-            </v-btn>
-          </v-col>
-          <v-col>
-            <v-btn fab>
-              <v-icon>mdi-content-copy</v-icon>
-            </v-btn>
-          </v-col>
-          <v-col>
-            <v-btn class="mx-2" fab>
-              <v-icon dark>
-                mdi-plus
-              </v-icon>
-            </v-btn>
-          </v-col>
-        </v-row>
+        <main-actions />
       </v-card-actions>
     </v-card>
   </div>
@@ -114,9 +47,15 @@
 <script>
 import { mapGetters, mapMutations } from 'vuex'
 const contentManeger = () => import('./contentManeger')
+const questionBase = () => import('./questionBase/questionBase')
+const baseStyle = () => import('./baseStyle')
+const mainActions = () => import('./mainActions')
 export default {
   components: {
-    'content-maneger': contentManeger
+    'content-maneger': contentManeger,
+    'question-base': questionBase,
+    'base-style': baseStyle,
+    'main-actions': mainActions
   },
   props: {
     content: {
