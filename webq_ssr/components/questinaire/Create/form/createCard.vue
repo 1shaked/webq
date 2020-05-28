@@ -12,7 +12,6 @@
           @change="CHANGE_CONTENT_PARAMETER({ index: content, contentParameters: { type: contentType.name } })"
         />
       </v-card-title>
-      {{ contentType }}
       <v-card-text>
         <v-container>
           <v-row>
@@ -23,6 +22,20 @@
                 outlined
               />
             </v-col>
+            <v-col cols="12" md="8" lg="6">
+              <v-text-field
+                label="תוכן השאלה"
+                placeholder="מה הגיל שלך?"
+                outlined
+              />
+            </v-col>
+            <v-col cols="12" md="8" lg="6">
+              <v-text-field
+                label="מידע לדוגמא על השדה: מה ת.ז שלך"
+                placeholder="000-000-000"
+                outlined
+              />
+            </v-col>
           </v-row>
         </v-container>
         <v-row
@@ -30,9 +43,9 @@
           class="mx-0"
         />
 
-        <div class="my-4 subtitle-1">
+        <!-- <div class="my-4 subtitle-1">
           $ • Italian, Cafe
-        </div>
+        </div> -->
         {{ content }}
         <content-maneger :index="content" />
         <div>
