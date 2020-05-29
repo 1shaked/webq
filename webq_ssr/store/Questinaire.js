@@ -17,8 +17,8 @@ export const state = () => ({
   questinaire: {
     name: 'aaa',
     content: [
-      { type: 'textQuestion', content: 'kkkksksk', name: 'aaaa', dataType: 'int', required: true, textSize: 16, class: ' bold under_line', rowSize: 10, label: 't', style: { } },
-      { type: 'textQuestion', content: 'test me', name: 'my name', dataType: 'text', required: true, textSize: 16, class: ' bold under_line', rowSize: 10, label: 'test label', style: { } }
+      { type: 'textQuestion', content: 'kkkksksk', name: 'aaaa', dataType: 'int', required: true, label: 't', style: { } },
+      { type: 'textQuestion', content: 'test me', name: 'my name', dataType: 'text', required: true, label: 'test label', style: { } }
     ]
   }
 })
