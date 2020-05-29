@@ -8,7 +8,8 @@ import {
   DELETE_OPTION_FROM_QUESTION,
   PUSH_QUESTION_TO_INDEX,
   DUPLICATE_QUESTION,
-  CHANGE_CONTENT_PARAMETER
+  CHANGE_CONTENT_PARAMETER,
+  TOGGLE_VIEW_STATE
 } from '~/mutations/Questinaire'
 import contentTypes from '~/storeAssetes/contentTypes'
 
@@ -20,7 +21,8 @@ export const state = () => ({
       { type: 'textQuestion', content: 'kkkksksk', name: 'aaaa', dataType: 'int', required: true, label: 't', style: { } },
       { type: 'textQuestion', content: 'test me', name: 'my name', dataType: 'text', required: true, label: 'test label', style: { } }
     ]
-  }
+  },
+  view: 'edit'
 })
 
 // camelCase
@@ -66,11 +68,6 @@ export const mutations = {
   },
   [ADD_STYLE_TO_QUESTION] (state, { questionIndex, styleObj }) {
     Vue.set(state.questinaire.content[questionIndex].style, styleObj.key, styleObj.value)
-    // adding the style by the spread oprator
-    // state.questinaire.content[questionIndex].style = {
-    //   ...state.questinaire.content[questionIndex].style,
-    //   ...style
-    // }
   },
   [ADD_OPTION_TO_QUESTION] (state, index) {
     state.questinaire.content[index].options.push({ text: 'test', value: 'value' })
@@ -82,6 +79,9 @@ export const mutations = {
     Vue.set(state, 'questinaire', questinaire)
     state.questinaire = { ...questinaire }
     // TODO: choose one of the two options
+  },
+  [TOGGLE_VIEW_STATE] (state) {
+    state.view = state.view === 'edit' ? 'preview' : 'edit'
   }
 }
 
