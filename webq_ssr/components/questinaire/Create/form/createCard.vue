@@ -34,7 +34,7 @@
       <v-card-title>Tonight's availability</v-card-title>
 
       <v-card-text>
-        <base-style />
+        <base-style :index="content" />
       </v-card-text>
 
       <v-card-actions>
