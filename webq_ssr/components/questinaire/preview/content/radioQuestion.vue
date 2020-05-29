@@ -1,15 +1,6 @@
 <template>
   <v-container>
     <h1>radio</h1>
-    {{ questinaireContentByIndex(0) }}
-    <!-- <v-radio-group>
-      <v-radio
-        v-for="(option , index) in question.options"
-        :key="index"
-        :label="`${option.text}`"
-        :value="option.value"
-      />
-    </v-radio-group> -->
   </v-container>
 </template>
 
