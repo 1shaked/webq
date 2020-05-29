@@ -17,8 +17,8 @@ export const state = () => ({
   questinaire: {
     name: 'aaa',
     content: [
-      { type: 'textQuestion', content: 'kkkksksk', name: 'aaaa', dataType: 'int', required: true, textSize: 16, class: ' bold under_line', rowSize: 10, label: 't' },
-      { type: 'textQuestion', content: 'test me', name: 'my name', dataType: 'text', required: true, textSize: 16, class: ' bold under_line', rowSize: 10, label: 'test label' }
+      { type: 'textQuestion', content: 'kkkksksk', name: 'aaaa', dataType: 'int', required: true, textSize: 16, class: ' bold under_line', rowSize: 10, label: 't', style: { } },
+      { type: 'textQuestion', content: 'test me', name: 'my name', dataType: 'text', required: true, textSize: 16, class: ' bold under_line', rowSize: 10, label: 'test label', style: { } }
     ]
   }
 })
@@ -33,6 +33,9 @@ export const getters = {
   },
   questinaireContent: (state) => {
     return state.questinaire.content
+  },
+  questinaireContentByIndex: state => (index) => {
+    return state.questinaire.content[index]
   }
 }
 
@@ -61,12 +64,13 @@ export const mutations = {
       Vue.set(state.questinaire.content[index], key, value)
     }
   },
-  [ADD_STYLE_TO_QUESTION] (state, { questionIndex, style }) {
+  [ADD_STYLE_TO_QUESTION] (state, { questionIndex, styleObj }) {
+    Vue.set(state.questinaire.content[questionIndex].style, styleObj.key, styleObj.value)
     // adding the style by the spread oprator
-    state.questinaire.content[questionIndex].style = {
-      ...state.questinaire.content[questionIndex].style,
-      ...style
-    }
+    // state.questinaire.content[questionIndex].style = {
+    //   ...state.questinaire.content[questionIndex].style,
+    //   ...style
+    // }
   },
   [ADD_OPTION_TO_QUESTION] (state, index) {
     state.questinaire.content[index].options.push({ text: 'test', value: 'value' })
