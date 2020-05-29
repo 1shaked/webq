@@ -31,19 +31,9 @@ export default {
     ]),
     componentName () {
       const componentName = this.questinaireContent[this.index].type
-      // eslint-disable-next-line
-      // const componentToRender = () => import(`./content/${fileName}`)
       return componentName
     }
   }
-  // render (h) {
-  //   const component = () => import('./content/text')
-  //   return h('h1', {}, [
-  //     `testttt 1 + ${this.index} ${this.questinaireName}`,
-  //     h(component)
-  //   ])
-  //   // return createElement(component)
-  // }
 }
 </script>
 
