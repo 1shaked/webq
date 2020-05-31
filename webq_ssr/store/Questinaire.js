@@ -38,6 +38,9 @@ export const getters = {
   },
   questinaireContentByIndex: state => (index) => {
     return state.questinaire.content[index]
+  },
+  questinaireContentItemsLen: (state) => {
+    return state.questinaire.content.length
   }
 }
 
