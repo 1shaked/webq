@@ -1,6 +1,7 @@
 <template>
   <v-container>
     content maneger preview
+    <component :is="componentName" :index="index" />
   </v-container>
 </template>
 
