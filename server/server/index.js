@@ -32,14 +32,14 @@ app.use('/forms/get_answers' , get_answers);
 
 
 // Handel production
-if(process.env.NODE_ENV === 'production')
+if(process.env.NODE_ENV === 'production' || true)
 {
     //Static folder
     app.use(express.static(__dirname + '/public'));
 
     //Handel Singel Page app
     app.get(/.*/ , (req , res) => {
-        res.sendFile(__dirname + '/public/index.html')
+        res.sendFile(__dirname + '/server/public/index.html')
     });
 }
 
