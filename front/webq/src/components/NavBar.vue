@@ -5,7 +5,6 @@
     </v-toolbar-title>
     <v-spacer>
     </v-spacer>
-    <router-link to='/archive'>ארכיון</router-link>
     <v-toolbar-items>
     </v-toolbar-items>
   </v-app-bar>
