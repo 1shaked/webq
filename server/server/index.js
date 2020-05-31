@@ -32,7 +32,7 @@ app.use('/forms/get_answers' , get_answers);
 
 
 // Handel production
-if(process.env.NODE_ENV === 'production' || false)
+if(process.env.NODE_ENV === 'production')
 {
     //Static folder
     app.use(express.static(__dirname + '/public'));
