@@ -18,10 +18,6 @@
           align="center"
           class="mx-0"
         />
-
-        <!-- <div class="my-4 subtitle-1">
-          $ • Italian, Cafe
-        </div> -->
         {{ content }}
         <content-maneger :index="content" />
         <div>
