@@ -17,8 +17,8 @@
       </v-col>
       <v-col cols="12" md="8" lg="6">
         <v-text-field
-          label="מידע לדוגמא על השדה: מה ת.ז שלך"
-          placeholder="000-000-000"
+          label="מידע לדוגמא:"
+          placeholder="21"
           outlined
         />
       </v-col>
