@@ -1,11 +1,7 @@
 <template>
   <v-container class="form_index">
-    <v-container>
-      <name-questinaire />
-    </v-container>
-    <v-container>
-      <content-questinaire />
-    </v-container>
+    <name-questinaire />
+    <content-questinaire />
   </v-container>
 </template>
 <script>
