@@ -19,8 +19,8 @@ export const state = () => ({
   questinaire: {
     name: 'aaa',
     content: [
-      defaultQuestion,
-      defaultQuestion
+      JSON.parse(JSON.stringify(defaultQuestion)),
+      JSON.parse(JSON.stringify(defaultQuestion))
     ]
   }
 })
