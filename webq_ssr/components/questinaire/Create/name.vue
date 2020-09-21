@@ -1,5 +1,5 @@
 <template>
-  <v-container class="display-3 questinaireName">
+  <v-container class="questinaireName">
     {{ questinaireName }}
   </v-container>
 </template>
@@ -21,5 +21,7 @@ export default {
   background-color: $accent;
   border-radius: 20px;
   box-shadow: 3px 3px $info;
+  font-size: 25px;
+  padding: 0px;
 }
 </style>
