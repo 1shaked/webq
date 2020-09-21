@@ -2,27 +2,23 @@
   <div>
     <v-container>
       <v-row>
-        <v-col cols="12" md="6">
-          <!-- TODO: loop throhu the content -->
-          <create-card :content="0" />
-        </v-col>
-        <v-col cols="12" md="6">
-          <create-card :content="1" />
+        <v-col v-for="( _ , index ) in questinaireContent" :key="index" cols="12" md="6">
+          <create-card :content="index" />
         </v-col>
       </v-row>
     </v-container>
   </div>
 </template>
 <script>
-import { mapState } from 'vuex'
+import { mapGetters } from 'vuex'
 const createCard = () => import('./createCard')
 export default {
   components: {
     'create-card': createCard
   },
   computed: {
-    ...mapState('Questinaire', [
-      'questinaire'
+    ...mapGetters('Questinaire', [
+      'questinaireContent'
     ])
   }
 }
