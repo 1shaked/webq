@@ -11,6 +11,7 @@
   </v-container>
 </template>
 <script>
+import { mapMutations } from 'vuex'
 const Create = () => import('~/components/questinaire/create/index')
 const ControlPanel = () => import('~/components/questinaire/controlPanel/index')
 export default {
@@ -18,6 +19,14 @@ export default {
   components: {
     'create-questinaire': Create,
     'control-panel': ControlPanel
+  },
+  mounted () {
+    this.SET_QUESTINAIRE_NAME(this.$route.params.id)
+  },
+  methods: {
+    ...mapMutations('Questinaire', [
+      'SET_QUESTINAIRE_NAME'
+    ])
   }
 }
 </script>
