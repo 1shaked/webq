@@ -12,14 +12,15 @@ import {
   SET_QUESTINAIRE_NAME
 } from '~/mutations/Questinaire'
 import contentTypes from '~/storeAssetes/contentTypes'
+import defaultQuestion from '~/storeAssetes/defaultQuestion'
 
 // style camelCase
 export const state = () => ({
   questinaire: {
     name: 'aaa',
     content: [
-      { type: 'textQuestion', content: 'kkkksksk', name: 'aaaa', dataType: 'int', required: true, label: 't', style: { } },
-      { type: 'textQuestion', content: 'test me', name: 'my name', dataType: 'text', required: true, label: 'test label', style: { } }
+      defaultQuestion,
+      defaultQuestion
     ]
   }
 })
