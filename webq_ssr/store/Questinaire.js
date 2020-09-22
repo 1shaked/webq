@@ -45,7 +45,6 @@ export const getters = {
 // style all upper case for mutations , var are camelCase
 export const mutations = {
   [ADD_QUESTION] (state, index) {
-    console.log(index)
     state.questinaire.content.splice(index + 1, 0, JSON.parse(JSON.stringify(defaultQuestion)))
   },
   [DELETE_QUESTION] (state, index) {
