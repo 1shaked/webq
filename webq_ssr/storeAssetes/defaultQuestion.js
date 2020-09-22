@@ -1,8 +1,11 @@
+import contentTypes from './contentTypes'
+import { TEXT_QUESTION } from './questionsDataTypes'
+
 export default {
-  type: 'textQuestion',
+  dataType: { ...JSON.parse(JSON.stringify(TEXT_QUESTION)) },
+  type: { ...JSON.parse(JSON.stringify(contentTypes[0].value)) },
   name: 'defaultQuestion',
   content: 'שאלה לדוגמא',
-  dataType: 'int',
   required: true,
   label: 'the label',
   style: { }
