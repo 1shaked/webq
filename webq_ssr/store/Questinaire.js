@@ -11,7 +11,8 @@ import {
   CHANGE_CONTENT_PARAMETER,
   SET_QUESTINAIRE_NAME,
   ADD_QUESTION,
-  SET_QUESTION_OPTION_BY_INDEX
+  SET_QUESTION_OPTION_BY_INDEX,
+  DELETE_QUESTION_OPTION_BY_INDEX
 } from '~/mutations/Questinaire'
 import contentTypes from '~/storeAssetes/contentTypes'
 import defaultQuestion from '~/storeAssetes/defaultQuestion'
@@ -90,6 +91,9 @@ export const mutations = {
   [SET_QUESTION_OPTION_BY_INDEX] (state, { questionIndex, optionIndex, text, value }) {
     Vue.set(state.questinaire.content[questionIndex].options[optionIndex], 'text', text)
     Vue.set(state.questinaire.content[questionIndex].options[optionIndex], 'value', value)
+  },
+  [DELETE_QUESTION_OPTION_BY_INDEX] (state, { questionIndex, optionIndex }) {
+    state.questinaire.content[questionIndex].options.splice(optionIndex, 1)
   }
 }
 
