@@ -9,7 +9,8 @@ import {
   PUSH_QUESTION_TO_INDEX,
   DUPLICATE_QUESTION,
   CHANGE_CONTENT_PARAMETER,
-  SET_QUESTINAIRE_NAME
+  SET_QUESTINAIRE_NAME,
+  ADD_QUESTION
 } from '~/mutations/Questinaire'
 import contentTypes from '~/storeAssetes/contentTypes'
 import defaultQuestion from '~/storeAssetes/defaultQuestion'
@@ -43,6 +44,10 @@ export const getters = {
 
 // style all upper case for mutations , var are camelCase
 export const mutations = {
+  [ADD_QUESTION] (state, index) {
+    console.log(index)
+    state.questinaire.content.splice(index + 1, 0, JSON.parse(JSON.stringify(defaultQuestion)))
+  },
   [DELETE_QUESTION] (state, index) {
     state.questinaire.content.splice(index, 1)
   },
@@ -62,9 +67,7 @@ export const mutations = {
     state.questinaire.content.splice(questionIndex + 1, 0, question)
   },
   [CHANGE_CONTENT_PARAMETER] (state, { index, contentParameters }) {
-    for (const [key, value] of Object.entries(contentParameters)) {
-      Vue.set(state.questinaire.content[index], key, value)
-    }
+    Vue.set(state.questinaire.content[index], 'type', JSON.parse(JSON.stringify(contentParameters)))
   },
   [ADD_STYLE_TO_QUESTION] (state, { questionIndex, styleObj }) {
     Vue.set(state.questinaire.content[questionIndex].style, styleObj.key, styleObj.value)
