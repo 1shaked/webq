@@ -76,7 +76,6 @@ export default {
       'CHANGE_CONTENT_PARAMETER'
     ]),
     ChangeQuestionType () {
-      console.log(this.contentType)
       this.CHANGE_CONTENT_PARAMETER({ index: this.content, contentParameters: this.contentType })
     }
   }
