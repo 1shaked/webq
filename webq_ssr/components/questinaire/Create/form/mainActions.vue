@@ -4,7 +4,7 @@
       <v-hover
         v-slot:default="{ hover }"
       >
-        <v-btn fab>
+        <v-btn fab @click="DELETE_QUESTION(index)">
           <v-icon v-if="!hover">
             mdi-delete-circle
           </v-icon>
@@ -32,7 +32,7 @@
       <v-hover
         v-slot:default="{ hover }"
       >
-        <v-btn class="mx-2" fab>
+        <v-btn fab class="mx-2" @click="ADD_QUESTION(index)">
           <v-icon v-if="!hover">
             mdi-plus
           </v-icon>
@@ -46,12 +46,21 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
 export default {
-  data () {
-    return {
+  props: {
+    index: {
+      type: Number,
+      reqired: true,
+      default: 0
     }
+  },
+  methods: {
+    ...mapMutations('Questinaire', [
+      'ADD_QUESTION',
+      'DELETE_QUESTION'
+    ])
   }
-
 }
 </script>
 
