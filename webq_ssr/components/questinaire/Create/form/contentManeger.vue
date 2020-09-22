@@ -30,7 +30,7 @@ export default {
       'questinaireContent'
     ]),
     componentName () {
-      const componentName = this.questinaireContent[this.index].type
+      const componentName = this.questinaireContent[this.index].type.name
       return componentName
     }
   }
