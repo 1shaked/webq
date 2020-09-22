@@ -10,7 +10,8 @@ import {
   DUPLICATE_QUESTION,
   CHANGE_CONTENT_PARAMETER,
   SET_QUESTINAIRE_NAME,
-  ADD_QUESTION
+  ADD_QUESTION,
+  SET_QUESTION_OPTION_BY_INDEX
 } from '~/mutations/Questinaire'
 import contentTypes from '~/storeAssetes/contentTypes'
 import defaultQuestion from '~/storeAssetes/defaultQuestion'
@@ -72,6 +73,9 @@ export const mutations = {
     Vue.set(state.questinaire.content[questionIndex].style, styleObj.key, styleObj.value)
   },
   [ADD_OPTION_TO_QUESTION] (state, index) {
+    if (!state.questinaire.content[index].options) {
+      Vue.set(state.questinaire.content[index], 'options', [])
+    }
     state.questinaire.content[index].options.push({ text: 'test', value: 'value' })
   },
   [DELETE_OPTION_FROM_QUESTION] (state, { questionIndex, optionIndex }) {
@@ -82,6 +86,10 @@ export const mutations = {
   },
   [SET_QUESTINAIRE_NAME] (state, name) {
     Vue.set(state.questinaire, 'name', name)
+  },
+  [SET_QUESTION_OPTION_BY_INDEX] (state, { questionIndex, optionIndex, text, value }) {
+    Vue.set(state.questinaire.content[questionIndex].options[optionIndex], 'text', text)
+    Vue.set(state.questinaire.content[questionIndex].options[optionIndex], 'value', value)
   }
 }
 
