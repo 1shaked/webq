@@ -8,12 +8,12 @@
         <v-select
           v-model="contentType"
           :items="contentTypes"
-          label="סוג קומפוננטה"
-          @change="CHANGE_CONTENT_PARAMETER({ index: content, contentParameters: { type: contentType.name } })"
+          :label="questinaireContent[content].type.text || 'סוג קומפוננטה'"
+          @change="ChangeQuestionType"
         />
       </v-card-title>
       <v-card-text>
-        <question-base v-show="contentType.type == 'question'" :index="content" />
+        <question-base v-show="questinaireContent[content].type.type == 'question'" :index="content" />
         <v-row
           align="center"
           class="mx-0"
@@ -21,7 +21,7 @@
         {{ content }}
         <content-maneger :index="content" />
         <div>
-          Small plates, salads & sandwiches - an intimate setting with 12 indoor seats plus patio seating.
+          The content type is {{ questinaireContent[content].type.name }}
         </div>
       </v-card-text>
 
@@ -34,7 +34,7 @@
       </v-card-text>
 
       <v-card-actions>
-        <main-actions />
+        <main-actions :index="content" />
       </v-card-actions>
     </v-card>
   </div>
@@ -67,7 +67,8 @@ export default {
   },
   computed: {
     ...mapGetters('Questinaire', [
-      'contentTypes'
+      'contentTypes',
+      'questinaireContent'
     ])
   },
   methods: {
@@ -75,7 +76,8 @@ export default {
       'CHANGE_CONTENT_PARAMETER'
     ]),
     ChangeQuestionType () {
-
+      console.log(this.contentType)
+      this.CHANGE_CONTENT_PARAMETER({ index: this.content, contentParameters: this.contentType })
     }
   }
 }
