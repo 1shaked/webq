@@ -1,12 +1,15 @@
 <template>
   <v-container>
     <v-row>
-      <v-col>
+      <v-col cols="12" lg="6" md="8">
         <v-text-field
           v-model="header"
           label="הכותרת"
           @change="addHeaderText"
         />
+      </v-col>
+      <v-col cols="12" lg="6" md="8">
+        {{ header }}
       </v-col>
     </v-row>
   </v-container>
