@@ -27,7 +27,7 @@
             >fa-plus-square</v-icon>
         </v-col> -->
         <v-col cols="12" md="8" lg="6">
-          <v-btn>
+          <v-btn @click="DELETE_QUESTION_OPTION_BY_INDEX({ questionIndex: index, optionIndex: i })">
             מחק את {{ i }}
             <v-icon>
               mdi-delete
@@ -63,7 +63,8 @@ export default {
   methods: {
     ...mapMutations('Questinaire', [
       'ADD_OPTION_TO_QUESTION',
-      'SET_QUESTION_OPTION_BY_INDEX'
+      'SET_QUESTION_OPTION_BY_INDEX',
+      'DELETE_QUESTION_OPTION_BY_INDEX'
     ])
   }
 }
